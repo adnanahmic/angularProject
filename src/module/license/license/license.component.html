@@ -1,0 +1,35 @@
+<div class="container">
+  <form [formGroup]="postForm" (ngSubmit)="updatePostById()">
+    <div class="content">
+      <h4>{{editPost}}</h4>
+      <div class="inputbox">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Enter Title" formControlName="title" />
+        </mat-form-field>
+        <span class="text-danger"
+          *ngIf="(postFormControl['title'].touched) && postFormControl['title'].errors?.['required']">
+          Title is required
+        </span>
+      </div>
+      <div class="inputbox">
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Enter Description" formControlName="body" />
+        </mat-form-field>
+        <span class="text-danger"
+          *ngIf="(postFormControl['body'].touched) && postFormControl['body'].errors?.['required']">
+          Description is required
+        </span>
+      </div>
+      <div class="row">
+        <button mat-raised-button color="primary" type="submit" style="margin-right: 10px">
+          Update
+        </button>
+        <button mat-raised-button color="warn" type="button" style="margin-left: 10px" [routerLink]="['/dashboard']">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span class="logo" [routerLink]="['/dashboard']">{{logo}}</span>
+  <div class="navbar">
+    <span class="item" [routerLink]="['/addNewPost']" routerLinkActive="router-link-active"
+      *ngIf="user">{{addNew}}</span>
+      <span class="item" [routerLink]="['/products']" routerLinkActive="router-link-active"
+      *ngIf="user">products</span>
+  </div>
+  <span class="example-spacer"></span>
+  <div class="navbar">
+    <span class="item" *ngIf="user && totalItems > 0"> {{total}}{{ totalItems }} </span>
+    <span class="item" (click)="Logout()" *ngIf="user">{{signOut}} </span>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,32 @@
+<div class="container">
+  <form [formGroup]="signInForm" (ngSubmit)="SignIn()">
+    <div class="content">
+      <h4>{{signIn}}</h4>
+      <div class="inputbox">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter Title" formControlName="email" />
+        </mat-form-field>
+        <span class="text-danger"
+          *ngIf="(signInFormControl['email'].touched) && signInFormControl['email'].errors?.['required']">
+          Email is required
+        </span>
+        <span class="text-danger"
+          *ngIf="(signInFormControl['email'].touched) && signInFormControl['email'].errors?.['email']">
+          Invalid email
+        </span>
+      </div>
+      <div class="inputbox">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter Description" formControlName="password" type="password"/>
+        </mat-form-field>
+        <span class="text-danger"
+          *ngIf="(signInFormControl['password'].touched) && signInFormControl['password'].errors?.['required']">
+          password is required
+        </span>
+      </div>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
